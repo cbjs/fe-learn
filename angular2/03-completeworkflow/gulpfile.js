@@ -1,15 +1,16 @@
 var gulp = require('gulp'),
-	del = require('del'),
-	sourcemaps = require('gulp-sourcemaps'),
+  	del = require('del'),
+  	sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync'),
-	cache = require('gulp-cache'),
+  	cache = require('gulp-cache'),
     gulpIf = require('gulp-if'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css'),
     useref = require('gulp-useref'),
-    sass = require('gulp-sass');
-	ts = require('gulp-typescript');
+    sass = require('gulp-sass'),
+    jspm = require('gulp-jspm-build'),
+  	ts = require('gulp-typescript');
 
 gulp.task('style', function() {
   gulp.src('src/scss/*.scss')
@@ -77,6 +78,31 @@ gulp.task('clean', function(cb) {
 	// del('build');
 	del('dist');
 	return cache.clearAll(cb);
+});
+
+gulp.task('jspm', function(){
+    jspm({        
+        bundleOptions: {
+            minify: true,
+            mangle: true
+        }
+        bundles: [
+            { src: 'app', dst: 'app.js' }
+            /*
+            {
+                src: 'react + react-router',
+                dst: 'lib.js',
+                options: { mangle: false }
+            }
+            */
+        ],
+        /*
+        configOverride: {
+            baseURL: '/foo'
+        }
+        */
+    })
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('default', ['typescript', 'style']);
