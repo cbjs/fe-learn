@@ -1,0 +1,25 @@
+{
+  "name": "simple01",
+  "version": "1.0.0",
+  "description": "a startup project with nothing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "systemjs",
+    "startup"
+  ],
+  "author": "cbjs.deng@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "typescript": "^1.7.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.4.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.10.0"
+  }
+}
