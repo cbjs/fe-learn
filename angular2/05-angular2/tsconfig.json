@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "rootDir": "src/ts",
+    "outDir": "js",
+    "target": "ES5",
+    "module": "system",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "src/**/*.ts"
+  ]
+}
